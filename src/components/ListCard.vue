@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <MyCard v-for="musica in musicaArray" :key="musica.id" :oggetto="musica" />
+    <div class="wrapper-card">
+        <MyCard v-for="(musica, indice) in musicaArray" :key="indice" :oggetto="musica" />
+    </div>
   </div>
 </template>
 
@@ -28,6 +30,9 @@ export default {
 </script>
 
 <style lang="scss">
-
-
+    .wrapper-card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 </style>

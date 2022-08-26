@@ -1,3 +1,5 @@
+@import '@/styles/var.scss';
+
 *{
     margin: 0;
     padding: 0;
@@ -10,11 +12,11 @@
     width: 1170px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
 }
 
 body{
-    background-color: background_color;
+    background-color: $background_color;
+    font-family: sans-serif;
 }
 
