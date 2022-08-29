@@ -1,6 +1,8 @@
 <template>
   <div id="app">
 
+    <MyHeader />
+
     <ListCard />
 
   </div>
@@ -8,11 +10,13 @@
 
 <script>
 import ListCard from './components/ListCard'
+import MyHeader from './components/MyHeader'
 
 export default {
   name: 'App',
   components: {
-    ListCard
+    ListCard,
+    MyHeader
   }
 }
 </script>
