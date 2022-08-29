@@ -1,9 +1,9 @@
 <template>
   <div id="app">
 
-    <MyHeader :mialista="newLista" />
+    <MyHeader @filtraGeneri="mioGenere" :mialista="newLista"/>
 
-    <ListCard @popolaGeneri="setGeneri"/>
+    <ListCard @popolaGeneri="setGeneri" :generePassato="generi"/>
 
   </div>
 </template>
@@ -21,11 +21,17 @@ export default {
   data(){
     return{
       newLista: null,
+      generi: null,
     }
   },
   methods: {
     setGeneri(listaGeneri) {
         this.newLista = listaGeneri
+    },
+    
+    setFiltraggio(mioGenere){
+      this.generi = mioGenere;
+      console.log('ciao')
     }
   }
 }

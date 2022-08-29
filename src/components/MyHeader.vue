@@ -1,10 +1,9 @@
 <template>
     <header>
-        <select>
+        <select @change="selezione($event)">
             <option v-for="(genere, indice) in mialista" 
             :key="indice" 
-            :value="genere"
-            @change="selezione">
+            :value="genere">
             {{genere}}</option>
         </select>
 
@@ -16,7 +15,21 @@
 export default {
     nome: 'MyHeader',
     props:{
-        mialista: Array
+        mialista: Array,
+    },
+    data(){
+        return{
+            datofiltrato: null,
+        }
+    },
+    methods:{
+        selezione(event){
+            this.datofiltrato = event.target.value;
+            this.$emit('filtraGeneri', this.datofiltrato);
+        }
+    },
+    created(){
+        this.$emit('filtraGeneri', this.datofiltrato);
     }
 
 }

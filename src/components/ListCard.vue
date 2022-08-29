@@ -21,6 +21,9 @@ export default {
             musicaArray: []
         }
     },
+    props:{
+        generi: String
+    },
     methods:{
         filtraGeneri(){
 
@@ -49,9 +52,9 @@ export default {
             });
 
             this.$emit('popolaGeneri', listaGeneri);
-
         })
-    }
+
+    },
 }
 </script>
 
