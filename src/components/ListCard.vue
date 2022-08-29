@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="wrapper-card">
-        <MyCard v-for="(musica, indice) in musicaArray" :key="indice" :oggetto="musica" />
+        <MyCard v-for="(musica, indice) in stampaFiltrati" :key="indice" :oggetto="musica" />
     </div>
 
   </div>
@@ -22,7 +22,7 @@ export default {
         }
     },
     props:{
-        generi: String
+        generePassato: String
     },
     methods:{
         filtraGeneri(){
@@ -53,7 +53,24 @@ export default {
 
             this.$emit('popolaGeneri', listaGeneri);
         })
+    },
+    computed:{
+        stampaFiltrati(){
+            if(this.generePassato == null){
+                return this.musicaArray;
+            }else{
+                let myValori = this.musicaArray.filter((musica =>{
+                if(musica.genre.includes(this.generePassato)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }));
+            return myValori;
 
+            }
+            
+        }
     },
 }
 </script>

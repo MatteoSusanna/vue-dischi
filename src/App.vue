@@ -28,10 +28,9 @@ export default {
     setGeneri(listaGeneri) {
         this.newLista = listaGeneri
     },
-    
-    setFiltraggio(mioGenere){
+
+    mioGenere(mioGenere){
       this.generi = mioGenere;
-      console.log('ciao')
     }
   }
 }
