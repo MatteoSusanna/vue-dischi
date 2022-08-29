@@ -1,14 +1,24 @@
 <template>
     <header>
         <select>
-            <option value=""></option>
+            <option v-for="(genere, indice) in mialista" 
+            :key="indice" 
+            :value="genere"
+            @change="selezione">
+            {{genere}}</option>
         </select>
+
+
     </header>
 </template>
 
 <script>
 export default {
-    nome: 'MyHeader'
+    nome: 'MyHeader',
+    props:{
+        mialista: Array
+    }
+
 }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
 
-    <MyHeader />
+    <MyHeader :mialista="newLista" />
 
-    <ListCard />
+    <ListCard @popolaGeneri="setGeneri"/>
 
   </div>
 </template>
@@ -17,6 +17,16 @@ export default {
   components: {
     ListCard,
     MyHeader
+  },
+  data(){
+    return{
+      newLista: null,
+    }
+  },
+  methods: {
+    setGeneri(listaGeneri) {
+        this.newLista = listaGeneri
+    }
   }
 }
 </script>

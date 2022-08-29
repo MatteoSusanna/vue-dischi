@@ -4,10 +4,6 @@
         <MyCard v-for="(musica, indice) in musicaArray" :key="indice" :oggetto="musica" />
     </div>
 
-    <select>
-            <option v-for="(genere, indice) in filtraGeneri" :key="indice" value="" >{{genere.genre}}</option>
-    </select>
-
   </div>
 </template>
 
@@ -27,22 +23,33 @@ export default {
     },
     methods:{
         filtraGeneri(){
-            const generiFiltrati = this.musicaArray.filter((generi =>{
-                if(!generi.genre.includes()){
-                    return true
-                }else{
-                    return false
+
+            let listaGeneri = [];
+
+            this.musicaArray.forEach(album => {
+                if(!listaGeneri.includes(album.genre)) {
+                    listaGeneri.push(album.genre);
                 }
-            }));
-            return generiFiltrati
-            
-        }
+            });
+            return listaGeneri;            
+        },
 
     },
     created(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then(musica =>{
             this.musicaArray = musica.data.response;
+
+            let listaGeneri = [];
+
+            this.musicaArray.forEach(album => {
+                if(!listaGeneri.includes(album.genre)) {
+                    listaGeneri.push(album.genre);
+                }
+            });
+
+            this.$emit('popolaGeneri', listaGeneri);
+
         })
     }
 }
