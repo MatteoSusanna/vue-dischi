@@ -1,6 +1,7 @@
 <template>
     <header>
         <select @change="selezione($event)">
+            <option value="">Seleziona genere</option>
             <option v-for="(genere, indice) in mialista" 
             :key="indice" 
             :value="genere">

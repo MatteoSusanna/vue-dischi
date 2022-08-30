@@ -23,7 +23,7 @@ export default {
     @import '@/styles/var.scss';
 
     .card{
-        width: calc(100% / 5 - 1rem);
+        width: calc(100% / 5);
         margin-bottom: 1rem;
         padding: 15px;
         background-color: $card_background;

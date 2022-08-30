@@ -59,7 +59,7 @@ export default {
             if(this.generePassato == null){
                 return this.musicaArray;
             }else{
-                let myValori = this.musicaArray.filter((musica =>{
+                const myValori = this.musicaArray.filter((musica =>{
                 if(musica.genre.includes(this.generePassato)){
                     return true;
                 }else{
@@ -67,7 +67,6 @@ export default {
                 }
             }));
             return myValori;
-
             }
             
         }
@@ -79,6 +78,5 @@ export default {
     .wrapper-card{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 </style>
